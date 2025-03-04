@@ -176,7 +176,7 @@ nav ul li a:hover span {
 }
 
 .image-slider {
-    width: 100vw;
+    width: 90vw;
     height: 100vh;
     position: relative;
     overflow: hidden;
@@ -184,8 +184,8 @@ nav ul li a:hover span {
     align-items: center;
     justify-content: center;
     background: rgb(255, 255, 255);
-
-    
+    margin: 0 auto;
+    border-radius: 15px;
 }
 
 .image-slider img {
@@ -195,6 +195,7 @@ nav ul li a:hover span {
     object-fit: cover;
     opacity: 0;
     transition: opacity 0.7s ease-in-out;
+    border-radius: 15px;
 }
 
 .image-slider img.active {
@@ -341,10 +342,11 @@ span {
 /* Bold Dark Red Heading */
 .vignelli-text h2 {
     font-size: 4vw;
-    margin-top: 200px;
+    margin-top: 220px;
     font-weight: 900; /* Extra Bold */
     color: #8B0000; /* Dark Red */
     margin-bottom: 15px;
+    
 }
 
 /* Image & Info Container (Side by Side Layout) */
@@ -425,6 +427,219 @@ span {
     animation: moveTextUp 1.5s forwards ease-in-out;
 }
 
+/* Christopher Latham Sholes Section */
+.sholes-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 5vw;
+    overflow: hidden;
+    background: white;
+}
+
+/* Big Bold Heading */
+.sholes-text h2 {
+    font-size: 6vw;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: black;
+    text-align: left;
+    width: 100%;
+    line-height: 0.9;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* Container for Image + Quote */
+.sholes-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 50px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* Left Side: Sketch Image */
+.sholes-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 40%;
+}
+
+.sholes-img {
+    width: 100%;
+    max-width: 300px;
+    padding: 15px;
+    background: none; 
+    border: 5px dashed blue; /* Dashed Border for a Hand-Drawn Look */
+    border-radius: 20px; /* Slightly Rounded */
+    box-shadow: 5px 5px 0px blue, 10px 10px 0px rgba(0, 0, 255, 0.5); /* Offset Shadows */
+    transition: transform 0.5s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.sholes-img:hover {
+    transform: scale(1.05) rotate(-2deg); /* Slight Rotation for a Playful Effect */
+    box-shadow: 8px 8px 0px blue, 15px 15px 0px rgba(0, 0, 255, 0.3); /* More Pronounced Shadow */
+}
+
+/* Right Side: Quote Block */
+.sholes-quote {
+    width: 50%;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
+
+/* Quote Text */
+.sholes-quote p {
+    font-size: 2vw;
+    font-weight: 500;
+    line-height: 1.4;
+    color: black;
+}
+
+/* Quotation Marks */
+.quote-mark {
+    font-size: 3vw;
+    font-weight: bold;
+}
+
+/* Words that should be blue (Interactive) */
+.highlight-key {
+    color: blue;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+/* When Hovering, Change Blue Text to a Different Shade */
+.highlight-key:hover {
+    color: #4A90E2; /* Lighter blue when hovered */
+}
+
+/* Highlighted Bottom Text */
+.highlighted {
+    font-size: 2vw;
+    font-weight: bold;
+    color: blue;
+    margin-top: 15px;
+}
+
+/* Animations - Fade In Effect */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in-delay {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
+
+
+/* FULLSCREEN FOOTER */
+.footer {
+    position: relative;
+    height: 50vh;
+    width: 100%;
+    background: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: height 0.5s ease-in-out, background 0.5s ease-in-out;
+}
+
+/* FOOTER EXPANDS WHEN HOVERED */
+.footer:hover {
+    height: 60vh;
+    background: rgb(255, 255, 255);
+}
+
+/* MOVING TEXT MARQUEE */
+.footer-marquee {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    position: absolute;
+    top: 10%;
+}
+
+.marquee-text {
+    font-size: 3vw;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: rgb(0, 0, 0);
+    display: inline-block;
+    animation: marqueeScroll 8s linear infinite;
+}
+
+/* Marquee Animation */
+@keyframes marqueeScroll {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* MAIN FOOTER CONTENT */
+.footer-content {
+    text-align: center;
+    z-index: 10;
+    opacity: 1;
+}
+
+/* LARGE CENTERED TITLE */
+.footer-title {
+    font-size: 5vw;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+/* NAVIGATION MENU */
+.footer-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.footer-nav ul li {
+    display: inline-block;
+}
+
+.footer-nav ul li a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-size: 1.5vw;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Change color on hover */
+.footer-nav ul li a:hover {
+    color: #ff4500;
+}
+
+/* FOOTER INTERACTIONS */
+.footer:hover .footer-title {
+    transform: translateY(-10px);
+    opacity: 0.8;
+}
 
 
 @keyframes bounce {
