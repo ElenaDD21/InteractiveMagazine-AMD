@@ -18,25 +18,54 @@ header {
     top: 0;
     width: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    justify-content: space-between;
+    padding: 20px 60px;
     z-index: 1000;
     background: white;
+    font-size: 18px;
+    font-weight: bold;
 }
 
 .logo {
-    font-size: 20px;
+    font-size: 22px;
     font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-left: 0;
+    flex-grow: 1;
+}
+
+.logo span {
+    display: inline-block;
+    transition: transform 0.4s ease-in-out;
+}
+
+.logo:hover span {
+    transform: rotateY(360deg);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+}
+
+nav {
+    display: flex;
+    align-items: center;
 }
 
 nav ul {
     list-style: none;
     display: flex;
+    gap: 60px;
+    margin-left: auto;
 }
 
 nav ul li {
-    margin-left: 20px;
+    display: inline-block;
+    position: relative;
 }
 
 nav ul li a {
@@ -44,6 +73,21 @@ nav ul li a {
     color: #000;
     font-size: 16px;
     font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    position: relative;
+}
+
+
+nav ul li a span {
+    display: inline-block;
+    transition: transform 0.4s ease-in-out;
+}
+
+nav ul li a:hover span {
+    display: inline-block;
+    transform: rotateY(360deg);
 }
 
 .hero {
@@ -53,43 +97,335 @@ nav ul li a {
     justify-content: center;
     text-align: center;
     position: relative;
+    background: #ffffff;
+    padding: 0 5vw;
+    background: 
+        url('../assets/spray-effect.jpg') top left / 200px auto no-repeat,
+        url('../assets/spray-effect.jpg') bottom right / 20px auto no-repeat,
+        url('../assets/spray-effect.jpg') center / 900px auto no-repeat,
+        url('../assets/spray-effect.jpg') bottom left / 330px auto no-repeat;
+    
+    animation: moveBackground 6s infinite alternate ease-in-out;
+}
+
+@keyframes moveBackground {
+    0% {
+        background-position: top left, bottom right, center, bottom left;
+    }
+    50% {
+        background-position: top 20px left 10px, bottom 20px right 90px, center 10px, bottom 30px center;
+    }
+    100% {
+        background-position: top left, bottom right, center, bottom left;
+    }
 }
 
 .hero-text {
     position: relative;
     z-index: 2;
+    max-width: 70%;
+    margin: auto;
 }
 
 .hero-text h1 {
-    font-size: 5vw;
+    font-size: 7vw;
     font-weight: 900;
     line-height: 1.1;
     text-transform: uppercase;
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease-out forwards;
 }
 
 .spray-effect {
     position: absolute;
-    width: 300px;
-    height: 150px;
-    background: url('../assets/spray-effect.png') no-repeat center;
+    width: 450px;
+    height: 250px;
     background-size: contain;
     left: 50%;
-    transform: translateX(-50%);
-    top: 50px;
+    transform: translateX(-60%);
+    top: 80px;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out forwards;
 }
 
 .hero-text p {
-    font-size: 1.5vw;
+    font-size: 1.8vw;
     margin-top: 20px;
     font-weight: 500;
+    color: #333;
+    max-width: 60%;
+    margin: auto;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1.2s ease-out forwards 0.5s;
 }
 
 .scroll-indicator {
-    font-size: 1.2vw;
+    font-size: 1.5vw;
     font-weight: bold;
-    margin-top: 30px;
+    margin-top: 40px;
     animation: bounce 1.5s infinite;
+    display: block;
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards 1s;
+    color: #8B0000;
 }
+
+.image-slider {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(255, 255, 255);
+
+    
+}
+
+.image-slider img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.7s ease-in-out;
+}
+
+.image-slider img.active {
+    opacity: 1;
+}
+
+/* Coco Chanel Section */
+.coco-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5vw;
+    overflow: hidden;
+    background: white;
+}
+
+/* Main container */
+.coco-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
+
+/* Text Block */
+.coco-text {
+    text-align: center;
+    font-size: 2vw;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 40px;
+    transition: transform 1.2s ease-out;
+}
+
+/* Image & Info Container */
+.coco-content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 50px;
+    width: 100%;
+}
+
+/* Large Image */
+.coco-img.large {
+    width: 40%;
+    border-radius: 10px;
+    transform: translateX(-50px);
+    transition: transform 1.2s ease-out;
+}
+
+/* Info Block (Small Image + Text) */
+.coco-info {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+}
+
+/* Small Image */
+.coco-img.small {
+    width: 100%;
+    border-radius: 10px;
+    transform: translateX(50px);
+    transition: transform 1.2s ease-out;
+}
+
+.coco-info p {
+    font-size: 1.2vw;
+    color: black;
+    margin-top: 15px;
+    line-height: 1.4;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
+
+/* Scroll Animation: Appear */
+.coco-section.visible .coco-container {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.coco-section.visible .coco-img.large {
+    transform: translateX(0);
+}
+
+.coco-section.visible .coco-img.small {
+    transform: translateX(0);
+}
+
+.coco-section.visible .coco-info p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Scroll Animation: Move Text Up (Smoother & Slower) */
+@keyframes moveTextUp {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(-50px); opacity: 0.5; }
+}
+
+.coco-section.scrolled .coco-text {
+    animation: moveTextUp 1.5s forwards ease-in-out;
+}
+
+span {
+    color: #8B0000;
+
+}
+
+
+/* Massimo Vignelli Section */
+.vignelli-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5vw;
+    overflow: hidden;
+    background: white;
+}
+
+/* Text Block (Now at the top) */
+.vignelli-text {
+    text-align: center;
+    font-size: 2vw;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 40px;
+    transition: transform 1.2s ease-out;
+    width: 100%;
+}
+
+/* Bold Dark Red Heading */
+.vignelli-text h2 {
+    font-size: 4vw;
+    margin-top: 200px;
+    font-weight: 900; /* Extra Bold */
+    color: #8B0000; /* Dark Red */
+    margin-bottom: 15px;
+}
+
+/* Image & Info Container (Side by Side Layout) */
+.vignelli-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* Large Image (Now on the Right) */
+.vignelli-img.large {
+    width: 45%;
+    height: auto;
+    border-radius: 10px;
+    transform: translateX(50px);
+    transition: transform 1.2s ease-out;
+}
+
+/* Info Block (Small Image + Text, Now on the Left) */
+.vignelli-info {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: 20px;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+
+/* Small Image */
+.vignelli-img.small {
+    width: 100%;
+    border-radius: 10px;
+    transform: translateX(-50px);
+    transition: transform 1.2s ease-out;
+}
+
+/* Text next to Small Image */
+.vignelli-info p {
+    font-size: 1.2vw;
+    color: black;
+    line-height: 1.4;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
+
+/* Scroll Animation: Appear */
+.vignelli-section.visible .vignelli-container {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.vignelli-section.visible .vignelli-img.large {
+    transform: translateX(0);
+}
+
+.vignelli-section.visible .vignelli-img.small {
+    transform: translateX(0);
+}
+
+.vignelli-section.visible .vignelli-info p {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Scroll Animation: Move Text Up */
+@keyframes moveTextUp {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(-50px); opacity: 0.5; }
+}
+
+.vignelli-section.scrolled .vignelli-text {
+    animation: moveTextUp 1.5s forwards ease-in-out;
+}
+
+
 
 @keyframes bounce {
     0%, 100% {
@@ -97,5 +433,36 @@ nav ul li a {
     }
     50% {
         transform: translateY(10px);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Smooth scrolling effect */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    .hero-text h1 {
+        font-size: 9vw;
+    }
+    .hero-text p {
+        font-size: 2.5vw;
+    }
+    .scroll-indicator {
+        font-size: 2.5vw;
+    }
+    nav ul {
+        gap: 20px;
     }
 }
