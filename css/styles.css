@@ -328,7 +328,7 @@ span {
     background: white;
 }
 
-/* Text Block (Now at the top) */
+
 .vignelli-text {
     text-align: center;
     font-size: 2vw;
@@ -339,7 +339,6 @@ span {
     width: 100%;
 }
 
-/* Bold Dark Red Heading */
 .vignelli-text h2 {
     font-size: 4vw;
     margin-top: 220px;
@@ -359,7 +358,6 @@ span {
     max-width: 1200px;
 }
 
-/* Large Image (Now on the Right) */
 .vignelli-img.large {
     width: 45%;
     height: auto;
@@ -368,7 +366,6 @@ span {
     transition: transform 1.2s ease-out;
 }
 
-/* Info Block (Small Image + Text, Now on the Left) */
 .vignelli-info {
     width: 40%;
     display: flex;
@@ -380,7 +377,6 @@ span {
     margin-bottom: 50px;
 }
 
-/* Small Image */
 .vignelli-img.small {
     width: 100%;
     border-radius: 10px;
@@ -388,7 +384,6 @@ span {
     transition: transform 1.2s ease-out;
 }
 
-/* Text next to Small Image */
 .vignelli-info p {
     font-size: 1.2vw;
     color: black;
@@ -398,7 +393,7 @@ span {
     transition: opacity 1.2s ease-out, transform 1.2s ease-out;
 }
 
-/* Scroll Animation: Appear */
+
 .vignelli-section.visible .vignelli-container {
     opacity: 1;
     transform: translateY(0);
@@ -417,7 +412,7 @@ span {
     transform: translateY(0);
 }
 
-/* Scroll Animation: Move Text Up */
+
 @keyframes moveTextUp {
     from { transform: translateY(0); opacity: 1; }
     to { transform: translateY(-50px); opacity: 0.5; }

@@ -1,5 +1,5 @@
-
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
+    // Image Slider Logic
     let images = document.querySelectorAll(".image-slider img");
     let currentIndex = 0;
 
@@ -10,75 +10,38 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     setInterval(changeImage, 1000);
-});
 
-document.addEventListener("DOMContentLoaded", function() {
-    let cocoSection = document.querySelector(".coco-section");
+    // Section Scroll Animations
+    let sections = document.querySelectorAll(".coco-section, .vignelli-section, .sholes-section");
 
     function revealOnScroll() {
-        let sectionPos = cocoSection.getBoundingClientRect().top;
-        let screenPos = window.innerHeight / 1.5;
+        sections.forEach((section) => {
+            let sectionPos = section.getBoundingClientRect().top;
+            let screenPos = window.innerHeight / 1.5;
 
-        if (sectionPos < screenPos) {
-            cocoSection.classList.add("visible");
-        }
+            if (sectionPos < screenPos) {
+                section.classList.add("visible");
+            }
 
-        // Move text up gradually
-        if (sectionPos < window.innerHeight / 3) {
-            cocoSection.classList.add("scrolled");
-        } else {
-            cocoSection.classList.remove("scrolled");
-        }
+            if (section.classList.contains("vignelli-section") || section.classList.contains("coco-section")) {
+                if (sectionPos < window.innerHeight / 3) {
+                    section.classList.add("scrolled");
+                } else {
+                    section.classList.remove("scrolled");
+                }
+            }
+        });
     }
 
     window.addEventListener("scroll", revealOnScroll);
-});
 
-document.addEventListener("DOMContentLoaded", function() {
-    let vignelliSection = document.querySelector(".vignelli-section");
-
-    function revealOnScroll() {
-        let sectionPos = vignelliSection.getBoundingClientRect().top;
-        let screenPos = window.innerHeight / 1.5;
-
-        if (sectionPos < screenPos) {
-            vignelliSection.classList.add("visible");
-        }
-
-        // Move text up gradually
-        if (sectionPos < window.innerHeight / 3) {
-            vignelliSection.classList.add("scrolled");
-        } else {
-            vignelliSection.classList.remove("scrolled");
-        }
-    }
-
-    window.addEventListener("scroll", revealOnScroll);
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-    let sholesSection = document.querySelector(".sholes-section");
-
-    function revealOnScroll() {
-        let sectionPos = sholesSection.getBoundingClientRect().top;
-        let screenPos = window.innerHeight / 1.5;
-
-        if (sectionPos < screenPos) {
-            sholesSection.classList.add("visible");
-        }
-    }
-
-    window.addEventListener("scroll", revealOnScroll);
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-    let sholesSection = document.querySelector(".sholes-section");
+    // Christopher Latham Sholes Section Animation
     let sholesText = document.querySelector(".sholes-text h2");
     let sholesQuote = document.querySelector(".sholes-quote");
     let fadeElements = document.querySelectorAll(".fade-in, .fade-in-delay");
 
-    function revealOnScroll() {
-        let sectionPos = sholesSection.getBoundingClientRect().top;
+    function revealSholes() {
+        let sectionPos = document.querySelector(".sholes-section").getBoundingClientRect().top;
         let screenPos = window.innerHeight / 1.5;
 
         if (sectionPos < screenPos) {
@@ -97,10 +60,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    window.addEventListener("scroll", revealOnScroll);
-});
+    window.addEventListener("scroll", revealSholes);
 
-document.addEventListener("DOMContentLoaded", function () {
+    // Footer Animation
     let footer = document.querySelector(".footer");
     let footerTitle = document.querySelector(".footer-title");
 
